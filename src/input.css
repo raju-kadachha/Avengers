@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+.nav-items a:hover {
+    color: red;
+    padding-bottom: 6px;
+    border-bottom: 3px solid rgb(255, 0, 0);
+    font-size: 21.5px;
+  }
