@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body{
+  background-color: black;
+}
+
 .nav-items a:hover {
     color: red;
     padding-bottom: 6px;
