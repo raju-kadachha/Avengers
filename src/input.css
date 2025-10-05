@@ -2,6 +2,7 @@
 
 body{
   background-color: black;
+  color: white;
 }
 
 .nav-items a:hover {
@@ -9,4 +10,47 @@ body{
     padding-bottom: 6px;
     border-bottom: 3px solid rgb(255, 0, 0);
     font-size: 21.5px;
+  }
+
+  footer  li {
+    list-style: none;
+  }
+
+  footer li:hover {
+    color: red;
+  }
+
+  footer i:hover {
+    color: red;
+    font-size: 29px;
+  } 
+
+
+  .box{
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: translateY(100%);
+  }
+
+  .box:hover img{
+    transform: translateY(-100%);
+    transition: all 0.5s ease;
+  }
+
+  .box:hover .image-content{
+    transform: translateY(0);
+    transition: all 0.5s ease;
+  }
+
+  .back{
+    background-size: contain;
+    background-repeat: no-repeat;
   }

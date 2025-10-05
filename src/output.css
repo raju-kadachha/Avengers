@@ -193,14 +193,11 @@
   .-mt-\[400px\] {
     margin-top: calc(400px * -1);
   }
-  .mt-3 {
-    margin-top: calc(var(--spacing) * 3);
-  }
-  .mt-3\.5 {
-    margin-top: calc(var(--spacing) * 3.5);
-  }
   .mt-6 {
     margin-top: calc(var(--spacing) * 6);
+  }
+  .mt-\[15px\] {
+    margin-top: 15px;
   }
   .mt-\[50px\] {
     margin-top: 50px;
@@ -217,6 +214,9 @@
   .mb-\[10px\] {
     margin-bottom: 10px;
   }
+  .mb-\[20px\] {
+    margin-bottom: 20px;
+  }
   .mb-\[50px\] {
     margin-bottom: 50px;
   }
@@ -229,9 +229,6 @@
   .hidden {
     display: none;
   }
-  .table {
-    display: table;
-  }
   .h-full {
     height: 100%;
   }
@@ -241,8 +238,8 @@
   .w-\[25\%\] {
     width: 25%;
   }
-  .w-\[33\%\] {
-    width: 33%;
+  .w-\[32\%\] {
+    width: 32%;
   }
   .w-\[40\%\] {
     width: 40%;
@@ -268,12 +265,6 @@
   .w-screen {
     width: 100vw;
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
-  .resize {
-    resize: both;
-  }
   .grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -288,12 +279,6 @@
   }
   .justify-center {
     justify-content: center;
-  }
-  .gap-1 {
-    gap: calc(var(--spacing) * 1);
-  }
-  .gap-1\.5 {
-    gap: calc(var(--spacing) * 1.5);
   }
   .gap-4 {
     gap: calc(var(--spacing) * 4);
@@ -377,29 +362,13 @@
   .italic {
     font-style: italic;
   }
-  .underline {
-    text-decoration-line: underline;
-  }
   .opacity-\[0\.88\] {
     opacity: 0.88;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .drop-shadow-lg {
     --tw-drop-shadow-size: drop-shadow(0 4px 4px var(--tw-drop-shadow-color, rgb(0 0 0 / 0.15)));
     --tw-drop-shadow: drop-shadow(var(--drop-shadow-lg));
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
-  .filter {
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
-  .text-shadow-amber-50 {
-    --tw-text-shadow-color: oklch(98.7% 0.022 95.277);
-    @supports (color: color-mix(in lab, red, red)) {
-      --tw-text-shadow-color: color-mix(in oklab, var(--color-amber-50) var(--tw-text-shadow-alpha), transparent);
-    }
   }
   .md\:flex {
     @media (width >= 48rem) {
@@ -426,12 +395,47 @@
 }
 body {
   background-color: black;
+  color: white;
 }
 .nav-items a:hover {
   color: red;
   padding-bottom: 6px;
   border-bottom: 3px solid rgb(255, 0, 0);
   font-size: 21.5px;
+}
+footer li {
+  list-style: none;
+}
+footer li:hover {
+  color: red;
+}
+footer i:hover {
+  color: red;
+  font-size: 29px;
+}
+.box {
+  position: relative;
+  overflow: hidden;
+}
+.image-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: translateY(100%);
+}
+.box:hover img {
+  transform: translateY(-100%);
+  transition: all 0.5s ease;
+}
+.box:hover .image-content {
+  transform: translateY(0);
+  transition: all 0.5s ease;
+}
+.back {
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 @property --tw-border-style {
   syntax: "*";
@@ -441,11 +445,6 @@ body {
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
-}
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
@@ -500,21 +499,11 @@ body {
   syntax: "*";
   inherits: false;
 }
-@property --tw-text-shadow-color {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-text-shadow-alpha {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 100%;
-}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
       --tw-font-weight: initial;
-      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
@@ -528,8 +517,6 @@ body {
       --tw-drop-shadow-color: initial;
       --tw-drop-shadow-alpha: 100%;
       --tw-drop-shadow-size: initial;
-      --tw-text-shadow-color: initial;
-      --tw-text-shadow-alpha: 100%;
     }
   }
 }
